@@ -23,7 +23,7 @@ This step has the following prerequisites:
             code: |
               apt-get update
               apt-get install -y curl unzip 
-        - nhumrich/deploy-to-rancher:
+        - boedy/rancher-inservice-upgrade:
             access_key: $RANCHER_ACCESS_KEY
             secret_key: $RANCHER_SECRET_KEY
             rancher_url: $RANCHER_URL
