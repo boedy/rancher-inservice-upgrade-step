@@ -19,10 +19,9 @@ tar -xzf composer.tar.gz
 rm composer.tar.gz
 mv rancher-compose-*/rancher-compose .
 rm -rf rancher-compose-*
-ls
+chmod +x rancher-compose
 
-
-"WERCKER_STEP_ROOT/rancher-compose" \
+echo "WERCKER_STEP_ROOT/rancher-compose" \
   --url "$DTR_PROTO://$WERCKER_RANCHER_INSERVICE_UPGRADE_RANCHER_URL" \
   --access-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_ACCESS_KEY" \
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
