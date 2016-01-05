@@ -1,6 +1,6 @@
 
 name: rancher-inservice-upgrade
-version: 0.1.5
+version: 0.1.8
 description: Do an inservice update to a rancher service
 keywords:
   - deploy

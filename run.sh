@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if [ "$WERCKER_RANCHER_INSERVICE_UPGRADE_HTTPS" == true ]; then
     export DTR_PROTO=https;
 else
@@ -13,17 +12,21 @@ else
   COMPOSER_URL=WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL
 fi
 
-curl -L -o composer.tar.gz "$COMPOSER_URL";
+# add tag to new image
+sed -i-e "s#$WERCKER_RANCHER_INSERVICE_UPGRADE_DOCKER_IMAGE#$WERCKER_RANCHER_INSERVICE_UPGRADE_DOCKER_IMAGE:$WERCKER_RANCHER_INSERVICE_UPGRADE_TAG#g" docker-compose.yml
 
+# download rancher-compose cli
+curl -L -o composer.tar.gz "$COMPOSER_URL";
 tar -xzf composer.tar.gz
 rm composer.tar.gz
 mv rancher-compose-*/rancher-compose .
 rm -rf rancher-compose-*
 chmod +x rancher-compose
 
-echo "WERCKER_STEP_ROOT/rancher-compose" \
+# exec the in-service upgrade
+./rancher-compose \
   --url "$DTR_PROTO://$WERCKER_RANCHER_INSERVICE_UPGRADE_RANCHER_URL" \
   --access-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_ACCESS_KEY" \
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
   --project-name "$WERCKER_RANCHER_INSERVICE_UPGRADE_STACK_NAME" \
-  up --upgrade --pull -c --interval 3000 --batch-size 1
+  up -d --upgrade --pull -c --interval 3000 --batch-size 1
