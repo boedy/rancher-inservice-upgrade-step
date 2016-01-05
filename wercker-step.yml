@@ -1,6 +1,6 @@
 
 name: rancher-inservice-upgrade
-version: 0.1.3
+version: 0.1.4
 description: Do an inservice update to a rancher service
 keywords:
   - deploy
@@ -29,3 +29,6 @@ properties:
   docker_image:
     type: string
     required: true
+  compose_cli_url:
+    type: string
+    required: false
