@@ -1,0 +1,31 @@
+webapp:
+    image: quay.io/kollekt/instore-nginx
+    ports:
+        - "8080:80"
+    volumes_from:
+        - app-data
+    links:
+        - mysql
+        - memcached
+        - beanstalkd
+    labels:
+        io.rancher.sidekicks: php, app-data
+        io.rancher.scheduler.affinity:host_label: web=true
+php:
+    image : quay.io/kollekt/instore-php
+    labels:
+        io.rancher.scheduler.affinity:host_label: web=true
+    volumes_from:
+        - app-data
+    net: "container:webserver"
+app-data:
+    image: quay.io/kollekt/instore-data:sometag:sometag:sometag:sometag
+    labels:
+        io.rancher.container.start_once: "true"
+memcached:
+    image: memcached:latest
+beanstalkd:
+    image: schickling/beanstalkd
+mysql:
+    image: mysql:5.6
+

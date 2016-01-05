@@ -1,0 +1,31 @@
+
+name: rancher-inservice-upgrade
+version: 0.1.0
+description: Do an inservice update to a rancher service
+keywords:
+  - deploy
+  - upgrade
+  - rancher
+  - docker
+properties:
+  access_key:
+    type: string
+    required: true
+  secret_key:
+    type: string
+    required: true
+  rancher_url:
+    type: string
+    required: true
+  https:
+    type: boolean
+    required: true
+  tag:
+    type: string
+    required: true
+  stack_name:
+    type: string
+    required: true
+  docker_image:
+    type: string
+    required: true
