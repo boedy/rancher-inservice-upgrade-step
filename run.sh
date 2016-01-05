@@ -13,7 +13,7 @@ else
 fi
 
 if [ "$WERCKER_RANCHER_INSERVICE_UPGRADE_VERBOSE" == true ]; then
-  VERBOSE=" -v "
+  VERBOSE=" --verbose "
 else
   VERBOSE=""
 fi

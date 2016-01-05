@@ -32,3 +32,4 @@ This step has the following prerequisites:
             stack_name: my-awesome-stack  # Rancher stack name
             docker_image: awesome # e.g: nginx or quay.io/<username>/image
             use_tag: false
+            verbose: false #optional
