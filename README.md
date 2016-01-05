@@ -1,5 +1,5 @@
 # rancher-inservice-upgrade-step
-[![wercker status](https://app.wercker.com/status/a15e8ae956ffd0a43c6d2fafd1af8208/s/master "wercker status")](https://app.wercker.com/project/bykey/a15e8ae956ffd0a43c6d2fafd1af8208)[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![wercker status](https://app.wercker.com/status/c1be753746f7aa46e4781cb3339a85e3/s "wercker status")](https://app.wercker.com/project/bykey/c1be753746f7aa46e4781cb3339a85e3)[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 Wercker step for Rancher In-service upgrades (based on [deploy to rancher](https://app.wercker.com/#applications/562131917b474cd81106a58c/tab/details))
 
