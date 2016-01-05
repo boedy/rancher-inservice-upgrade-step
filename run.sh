@@ -7,7 +7,7 @@ else
     export DTR_PROTO=http;
 fi
 
-if [ -z "$WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL"]; then
+if [ -z "$WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL" ]; then
   COMPOSER_URL="https://github.com/rancher/rancher-compose/releases/download/v0.7.0/rancher-compose-linux-amd64-v0.7.0.tar.gz"
 else
   COMPOSER_URL=WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL
