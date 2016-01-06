@@ -19,9 +19,9 @@ else
 fi
 
 if [ "$WERCKER_RANCHER_INSERVICE_UPGRADE_FORCE" == true ]; then
-  VERBOSE="--force-upgrade"
+  FORCE="--force-upgrade"
 else
-  VERBOSE=""
+  FORCE=""
 fi
 
 # add tag to new image
@@ -39,7 +39,7 @@ rm -rf rancher-compose-*
 chmod +x rancher-compose
 
 # print upgrade command
-echo "rancher-compose $VERBOSE up -d --upgrade --pull -c --interval 3000 --batch-size 1 $VERBOSE"
+echo "rancher-compose $VERBOSE up -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE"
 
 # exec the in-service upgrade
 ./rancher-compose \
@@ -48,4 +48,4 @@ echo "rancher-compose $VERBOSE up -d --upgrade --pull -c --interval 3000 --batch
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
   --project-name "$WERCKER_RANCHER_INSERVICE_UPGRADE_STACK_NAME" \
   $VERBOSE \
-  up -d --upgrade --pull -c --interval 3000 --batch-size 1 $VERBOSE
+  up -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE
