@@ -13,7 +13,7 @@ else
 fi
 
 if [ "$WERCKER_RANCHER_INSERVICE_UPGRADE_VERBOSE" == true ]; then
-  VERBOSE=" --verbose "
+  VERBOSE="--verbose"
 else
   VERBOSE=""
 fi
@@ -35,5 +35,5 @@ chmod +x rancher-compose
   --access-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_ACCESS_KEY" \
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
   --project-name "$WERCKER_RANCHER_INSERVICE_UPGRADE_STACK_NAME" \
-  "$VERBOSE" \
+  $VERBOSE \
   up -d --upgrade --pull -c --interval 3000 --batch-size 1
