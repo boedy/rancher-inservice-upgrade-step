@@ -38,6 +38,9 @@ mv rancher-compose-*/rancher-compose .
 rm -rf rancher-compose-*
 chmod +x rancher-compose
 
+# print upgrade command
+echo "rancher-compose $VERBOSE up -d --upgrade --pull -c --interval 3000 --batch-size 1 $VERBOSE"
+
 # exec the in-service upgrade
 ./rancher-compose \
   --url "$DTR_PROTO://$WERCKER_RANCHER_INSERVICE_UPGRADE_RANCHER_URL" \
