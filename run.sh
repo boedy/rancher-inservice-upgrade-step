@@ -18,8 +18,17 @@ else
   VERBOSE=""
 fi
 
+if [ "$WERCKER_RANCHER_INSERVICE_UPGRADE_FORCE" == true ]; then
+  VERBOSE="--force-upgrade"
+else
+  VERBOSE=""
+fi
+
 # add tag to new image
 sed -i-e "s#$WERCKER_RANCHER_INSERVICE_UPGRADE_DOCKER_IMAGE#$WERCKER_RANCHER_INSERVICE_UPGRADE_DOCKER_IMAGE:$WERCKER_RANCHER_INSERVICE_UPGRADE_TAG#g" docker-compose.yml
+
+# output docker-compose file
+cat docker-compose.yml
 
 # download rancher-compose cli
 curl -L -o composer.tar.gz "$COMPOSER_URL";
@@ -36,4 +45,4 @@ chmod +x rancher-compose
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
   --project-name "$WERCKER_RANCHER_INSERVICE_UPGRADE_STACK_NAME" \
   $VERBOSE \
-  up -d --upgrade --pull -c --interval 3000 --batch-size 1
+  up -d --upgrade --pull -c --interval 3000 --batch-size 1 $VERBOSE
