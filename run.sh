@@ -40,7 +40,7 @@ rm -rf rancher-compose-*
 chmod +x rancher-compose
 
 # print upgrade command
-echo "rancher-compose $VERBOSE up -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE"
+echo "rancher-compose $VERBOSE up -f docker-compose.yml -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE"
 
 # exec the in-service upgrade
 ./rancher-compose \
