@@ -49,4 +49,4 @@ echo "rancher-compose $VERBOSE up -f docker-compose.yml -d --upgrade --pull -c -
   --secret-key "$WERCKER_RANCHER_INSERVICE_UPGRADE_SECRET_KEY" \
   --project-name "$WERCKER_RANCHER_INSERVICE_UPGRADE_STACK_NAME" \
   $VERBOSE \
-  up -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE
+  up -f docker-compose.yml -d --upgrade --pull -c --interval 3000 --batch-size 1 $FORCE
