@@ -7,7 +7,7 @@ else
 fi
 
 if [ -z "$WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL" ]; then
-  COMPOSER_URL="https://github.com/rancher/rancher-compose/releases/download/v0.12.2/rancher-compose-linux-amd64-v0.12.2.tar.gz"
+  COMPOSER_URL="https://github.com/rancher/rancher-compose/releases/download/v0.12.5/rancher-compose-linux-amd64-v0.12.5.tar.gz"
 else
   COMPOSER_URL=WERCKER_RANCHER_INSERVICE_UPGRADE_COMPOSE_CLI_URL
 fi
